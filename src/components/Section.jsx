@@ -45,12 +45,14 @@ const SectionWraper = styled.div`
   height: 100vh;
   background-image: ${(props) => `url('/Images/${props.bgImage}')`};
   background-size: cover;
+  object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-between; //vertical alignment
   align-items: center; //horizontal alignment
+  scroll-snap-align: start;
 `;
 
 const HeaderGroup = styled.div`

@@ -7,13 +7,6 @@ const Header = () => {
 
 const [hamburgerStatus, setHamburgerStatus] = useState(false);
 
-const showMenu = () => {
-    setHamburgerStatus(true);
-}
-
-const closeMenu = () => {
-    setHamburgerStatus(false);
-}
   return (
     <Container>
       <a>
