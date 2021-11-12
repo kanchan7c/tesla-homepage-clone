@@ -30,6 +30,9 @@ a{
   text-decoration: none;
 }
 
+.display-block {
+  display: block;
+}
 
 @keyframes animateUpDown {
     0%, 20%, 50%, 80%, 100% {

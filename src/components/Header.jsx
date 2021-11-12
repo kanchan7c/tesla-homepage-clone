@@ -1,8 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from '@mui/icons-material/Close';
 
 const Header = () => {
+
+const [hamburgerStatus, setHamburgerStatus] = useState(false);
+
+const showMenu = () => {
+    setHamburgerStatus(true);
+}
+
+const closeMenu = () => {
+    setHamburgerStatus(false);
+}
   return (
     <Container>
       <a>
@@ -20,26 +31,27 @@ const Header = () => {
       <RightMenu>
         <a href="#">Shop</a>
         <a href="#">Account</a>
-        <Hamburger />
+        <Hamburger  onClick={() => setHamburgerStatus(true)}/>
       </RightMenu>
-      <HamburgerMenu>
+      <HamburgerMenu show={hamburgerStatus}>
+        <CloseMenuButton onClick={() => setHamburgerStatus(false)}/>
         <li>
-          <a href=""></a>Model S
+          <a href="">Model S</a>
         </li>
         <li>
-          <a href=""></a>Model 3
+          <a href="">Model 3</a>
         </li>
         <li>
-          <a href=""></a>Model X
+          <a href="">Model X</a>
         </li>
         <li>
-          <a href=""></a>Model Y
+          <a href="">Model Y</a>
         </li>
         <li>
-          <a href=""></a>solar roof
+          <a href="">solar roof</a>
         </li>
         <li>
-          <a href=""></a>solar panels
+          <a href="">solar panels</a>
         </li>
         <li>
           <a href="">Existing Inventory</a>
@@ -79,7 +91,7 @@ const Header = () => {
         </li>
         <li>
           <a href="">
-            more <span>></span>
+            more <p>></p>
           </a>
         </li>
       </HamburgerMenu>
@@ -101,6 +113,7 @@ const Container = styled.div`
   top: 0;
   right: 0;
   left: 0;
+  z-index: 100;
 `;
 
 const Menu = styled.div`
@@ -156,19 +169,43 @@ const RightMenu = styled.div`
 
 const Hamburger = styled(MenuIcon)`
   cursor: pointer;
-`;
+`
 const HamburgerMenu = styled.div`
-  display: none;
+  position: fixed;
+  width: 20rem;
+  top: 0;
+  bottom:0;
+  right: 0;
   margin-top: 1rem;
   text-transform: capitalize;
   list-style: none;
   background-color: white;
   padding: 2rem 1rem 1rem 2rem;
   line-height: 2.2rem;
-  
-  li {
-    width: 18rem;
+  transform: ${props => props.show ? 'translateX(0%)': 'translateX(100%)'};
+  transition: transform 0.3s ease-in-out;
+li {
     text-align: left;
+
+    a {
+        cursor: pointer;
+      }
   }
+
+  p {
+    position: absolute;
+    font-size: 1.3rem;
+    bottom: 4.5rem;
+    right: 4rem;
+    font-weight: 400;
   }
+  
 `;
+
+const CloseMenuButton = styled(CloseIcon)`
+  position: absolute;
+  top: 0.5rem;
+  right: 3rem;
+  cursor: pointer;
+`
+
