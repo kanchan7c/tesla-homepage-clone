@@ -122,17 +122,15 @@ const Menu = styled.div`
   a {
     font-weight: 500;
     text-transform: capitalize;
-    padding: 1px 5px;
+    padding: 2px 8px;
     flex-wrap: nowrap;
     border-radius: 5px;
     margin-right: 0.5rem;
+    transition: background 0.5s;
   }
 
   a:hover {
-    animation: rightFill infinite 1s;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
+    background-color: #dadee7;
   }
 `;
 const RightMenu = styled.div`
@@ -142,15 +140,15 @@ const RightMenu = styled.div`
   a {
     font-weight: 500;
     text-transform: capitalize;
-    padding: 1px 5px;
+    padding: 2px 8px;
     flex-wrap: nowrap;
     border-radius: 5px;
+    position: relative;
+    transition: background 0.5s;
   }
+
   a:hover {
-    animation: rightFill infinite 1s;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
+    background-color: #dadee7;
   }
 
   @media (max-width: 805px) {

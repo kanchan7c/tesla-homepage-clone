@@ -49,13 +49,3 @@ a{
 
 }
 
-@keyframes rightFill {
-
-  0% {
-    background: #dadee767;
-  }
-  100%{
-    background-color: #dadee7;
-  }
-  
-}
